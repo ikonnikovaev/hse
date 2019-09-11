@@ -1,0 +1,227 @@
+\documentclass[12pt, fleqn]{extarticle}
+
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{a4paper, top=2.0cm, left=2.0cm, right=2.0cm, bottom=2.0cm}
+
+\usepackage{graphicx}
+\usepackage[compact]{titlesec}
+\usepackage{enumitem}
+\usepackage{mdwlist}
+\usepackage{verbatim}
+
+\usepackage{tikz}
+\usepackage{hyperref}
+
+
+\setlength{\parskip}{0pt}
+\setlength\parindent{0pt}
+
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\Legendre}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\curvedbrackets}[1]{\left\{#1\right\}}
+\newcommand{\anglebrackets}[1]{\left\langle#1\right\rangle}
+
+\DeclareMathOperator{\Kernel}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Characteristic}{char}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem_}{Теорема}
+\newtheorem*{corollary}{Следствие}
+\newtheorem{proposition}{Предложение}
+\newtheorem*{claim}{Утверждение}
+\newtheorem{lemma}{Лемма}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem*{definition_}{Определение}
+\newtheorem*{pseudodefinition}{Псевдоопределение}
+\newtheorem*{Not}{Обозначение}
+\newtheorem{problem}{Задача}
+\newtheorem*{example}{Пример}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+
+\begin{document}
+\pagenumbering{gobble}
+\clearpage
+
+\thispagestyle{empty}
+\subsubsection*{Магистратура ВШЭ. 11 сентября.}
+
+\begin{problem}
+Найти базис пересечения и суммы подпространств 
+$U=\langle u_1,u_2,u_3\rangle$, $V=\langle v_1,v_2,v_3\rangle$ в $\real^4$, если
+$$
+u_1=\left(\begin{matrix}
+1 \\2\\ 0\\ 1 
+\end{matrix}\right),\,\,
+u_2=\left(\begin{matrix}
+1\\ 1\\ 1\\ 0
+\end{matrix}\right),\,\,
+u_3=\left(\begin{matrix}
+0\\ 1\\ -1\\ 1 
+\end{matrix}\right),\,\,
+v_1=\left(\begin{matrix}
+1\\ 0\\ 1\\  0
+\end{matrix}\right),\,\,
+v_2=\left(\begin{matrix}
+1 \\3 \\0 \\1
+\end{matrix}\right),\,\,
+v_3=\left(\begin{matrix}
+0 \\3 \\-1 \\1
+\end{matrix}\right).
+$$
+\end{problem}
+
+\begin{definition}
+Отображение $L: V \rightarrow W$ называется линейным отображением
+(или гомоморфизмом векторных пространств), если для любых $v_{1}, v_{2}, v \in V$,
+$\lambda \in K$\\
+$L(v_{1} + v_{2}) = L(v_{1}) + L(v_{2})$ и $L(\lambda v) = \lambda L(v)$.
+
+Множество линейных отображений из $V$ в $W$ будем обозначать $\Hom(V, W)$. 
+Введем также обозначение $\End(V) = \Hom(V, V)$.
+\end{definition}
+
+\begin{problem}
+Будет ли отображение $L \colon \complex \to \complex$, 
+где $L(x+iy)=x-iy$, $\real$-линейным? $\complex$-линейным?
+\end{problem}
+
+\begin{problem}
+Доказать, что произвольное линейное отображение 
+переводит любое линейно зависимое семейство векторов в линейно зависимое. 
+Верен ли аналогичный факт для линейно независимых семейств?
+\end{problem}
+
+
+\begin{problem} 
+Пусть $L \in \Hom(V, W)$, $V_{1}, V_{2} \leqslant V$,
+$W_{1}, W_{2} \leqslant W$.
+Верны ли перечисленные ниже равенства? 
+Если нет, то замените их на верные включения.
+
+а) $L(V_{1} + V_{2}) = L(V_{1}) + L(V_{2})$\\
+б) $L(V_{1} \cap V_{2}) = L(V_{1}) \cap L(V_{2})$\\
+в) $L^{-1}(W_{1} + W_{2}) = 
+L^{-1}(W_{1}) + L^{-1}(W_{2})$\\
+г) $L^{-1}(W_{1} \cap W_{2}) =
+ L^{-1}(W_{1}) \cap L^{-1}(W_{2})$
+ 
+(Замечание: отображение $L$ не обязательно обратимо! 
+$L^{-1}(W_{i}) = \curvedbrackets{v \in V \vert L(v) \in W_{i}}$ 
+-- полный прообраз $W_{i}$.)
+\end{problem}
+
+\begin{problem} 
+Покажите, что $\End(V)$ -- векторное пространство над $K$.
+Докажите, что если образы двух ненулевых операторов из
+$\End(V)$ различны, то эти операторы линейно независимы.
+\end{problem}
+
+
+\begin{definition}
+Пусть $(v_{1}, \ldots, v_{n})$ -- базис $V$, 
+$(w_{1}, \ldots, w_{m})$ -- базис $W$
+Матрица $A = (a_{ij})$ называется матрицей линейного отображения 
+$L: V \rightarrow W$, если 
+$$L(v_{j}) = \sum\limits_{i = 1}^{m} a_{ij}w_{i}, \quad j = 1, \ldots n$$
+\end{definition}
+
+
+\begin{problem}
+Пусть $V=\{ f\in K[x,y]\,|\, \deg f\leq 2\}$. 
+Выпишите матрицу линейного отображения $L\colon V\to V$ такого, что 
+$$L(f)=f(x,x+y)-f(x+y,-x+1)$$  
+в мономиальном базисе. Найдите базис ядра и образа этого линейного отображения.
+\end{problem}
+
+\begin{problem} 
+Пусть $K = \real$, 
+$V = \real^{3}$, $W = \curvedbrackets{f \in \real[t] \vert f''' = 0}$.
+Линейно ли отображение $L: V \rightarrow W$:
+$$L((\alpha, \beta, \gamma)) =
+ \alpha(t - 1)^{2} + \beta(t^{2} - 1) + \gamma(t^{2} - 3t + 2)$$
+
+Если да, найдите его матрицу относительно какой-нибудь
+пары базисов $V$ и $W$, а также укажите базисы ядра и образа $L$.
+\end{problem}
+
+\begin{definition}
+Матрица перехода от базиса $(u_{1}, u_{2}, \ldots, u_{n})$
+к базису $(v_{1}, v_{2}, \ldots, v_{n})$ -- это матрица $C$,
+такая что
+$$v_{j} = \sum\limits_{i = 1}^{n}c_{ij}u_{i}$$
+\end{definition}
+
+\begin{example}
+Матрица перехода от базиса  $$((1, 0, 0), (0, 1, 0), (0, 0, 1))$$
+к базису
+$$((2, 1, 0), (-1, -2, -3), (-1, 0, 0))$$
+в $\real^{3}$  -- это
+$$\left( \begin{array}{ccc}
+2 & -1 & -1\\
+1 & -2 & 0\\
+0 & -3 & 0 \end{array} \right)$$
+(проверьте!)
+\end{example}
+
+\begin{remark}
+Перечисляя базисные векторы, мы пишем их в круглых скобках,
+как упорядоченный набор (а не в фигурных, как обычно записываем множества),
+так как, как только мы начинаем говорить о координатах 
+в этом базисе, нам становится важна нумерация.
+(Подумайте, как изменится матрица перехода от $(u_{1}, u_{2}, \ldots, u_{n})$
+к $(v_{1}, v_{2}, \ldots, v_{n})$, если перенумеровать $u_i$? Если перенумеровать $v_j$?)
+\end{remark}
+
+\begin{claim}
+Если $C$ -- матрица перехода от базиса $\mathcal{B}$ к базису $\mathcal{B'}$, 
+то $C$ обратима и $C^{-1}$ -- матрица перехода от $\mathcal{B'}$ к $\mathcal{B}$. 
+\end{claim}
+
+\begin{problem}
+В пространстве $K[t]_3$ (многочленов с коэффициентами из поля $K$, степени не более 3)
+найти матрицу перехода от базиса $\mathcal{B}$
+к базису $\mathcal{B'}$:
+$$\mathcal{B} = (1, 1 + t, (1 + t)^{2} , (1 + t)^{3}),$$
+$$\mathcal{B'} = (t^{3} , t^{3} - t^{2} , t^{3} - t, t^{3} - 1)$$
+\end{problem}
+
+
+\begin{problem}
+В пространстве $\real^3$ 
+рассмотрим базис $f_1 = (1, 0, 1)$, $f_2=(1, 1, 1)$, $f_3=(2, 1, 1)$. \\
+а) Найдите матрицу перехода из стандартного базиса в базис $f$.\\
+б) Найдите матрицу линейного отображения $L\colon \real^3\to \real^3$ такого, что 
+$$L(x_i)=y_i,$$ 
+где 
+$$x_1 = (1, 2, 1), \quad x_2 = (1, 1, 1), \quad x_3 = (0, 1, 1),$$
+$$y_1=(-3, -1, -1), \quad y_2 = (2, 1, 2) \quad y_3 = (3, 1, 3),$$
+в базисе $f$.
+\end{problem}
+
+\begin{problem}
+Пусть $\dim(V_{1}) + \dim(W_{1}) = \dim(V)$ для некоторых 
+подпространств $V_{1} \leqslant V$, $W_{1} \leqslant W$.
+Докажите, что существует отображение
+$L \in \Hom(V, W)$ такое, что 
+$\Image(L) = W_{1}$, $\Kernel(L) = V_{1}$.
+\end{problem}
+
+
+
+\end{document}

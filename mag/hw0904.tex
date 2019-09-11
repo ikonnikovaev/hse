@@ -1,0 +1,165 @@
+\documentclass[12pt, fleqn]{extarticle}
+
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{a4paper, top=2.0cm, left=2.0cm, right=2.0cm, bottom=2.0cm}
+
+\usepackage{graphicx}
+\usepackage[compact]{titlesec}
+\usepackage{enumitem}
+\usepackage{mdwlist}
+\usepackage{verbatim}
+
+\usepackage{tikz}
+\usepackage{hyperref}
+
+
+\setlength{\parskip}{0pt}
+\setlength\parindent{0pt}
+
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\characteristic}{\textrm{char }}
+\newcommand{\Legendre}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\anglebrackets}[1]{\left\langle#1\right\rangle}
+
+\DeclareMathOperator{\Kernel}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\Characteristic}{Im}
+\DeclareMathAlphabet{\mathbbold}{U}{bbold}{m}{n}
+
+
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem_}{Теорема}
+\newtheorem*{corollary}{Следствие}
+\newtheorem{proposition}{Предложение}
+\newtheorem*{claim}{Утверждение}
+\newtheorem{lemma}{Лемма}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem*{definition_}{Определение}
+\newtheorem*{pseudodefinition}{Псевдоопределение}
+\newtheorem*{Not}{Обозначение}
+\newtheorem{problem}{Задача}
+\newtheorem*{example}{Пример}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+
+\begin{document}
+\pagenumbering{gobble}
+\clearpage
+
+\thispagestyle{empty}
+\subsubsection*{Магистратура ВШЭ. Домашнее задание от 4 сентября.}
+
+
+\begin{definition}
+Пусть $V$ -- векторное пространство над полем $K$. 
+{\it Линейная комбинация} векторов (т.е., элементов $V$) $v_{1}, v_{2}, \ldots, v_{n}$ 
+-- это любое выражение вида 
+$$\alpha_{1}v_{1} + \alpha_{2}v_{2} + \ldots + \alpha_{n}v_{n}, \quad \alpha_{i} \in K$$
+
+$v_{1}, v_{2}, \ldots, v_{n}$ называется линейно зависимыми, если
+существует их нетривиальная (т.е., такая, что не все $\alpha_{i}$ равны 0)
+линейная комбинация, равная $0 \in V$. Если  такой линейной комбинации нет,
+$v_{1}, v_{2}, \ldots, v_{n}$ называется линейно независимыми.
+
+Множество всех линейных комбинаций $v_{1}, v_{2}, \ldots, v_{n}$ 
+называется их {\it линейной оболочкой} и обозначается
+$\langle v_{1}, v_{2}, \ldots, v_{n} \rangle$.
+\end{definition}
+
+ 
+\begin{definition}
+$\{v_{1}, v_{2}, \ldots, v_{n}\}$ -- множество образующих $V$,
+если $\langle v_{1}, v_{2}, \ldots, v_{n} \rangle = V$.
+
+Линейно независимое множество образующих называется {\it базисом}.
+Все базисы векторного пространства $V$ имеют равное число элементов, которое называется {\it размерностью} пространства.
+
+Т.е., пусть $V$ конечномерно, $(v_{1}, v_{2}, \ldots, v_{n})$ -- его базис.
+Тогда любой вектор $w \in V$ представляется в  виде 
+$$w = \lambda_{1}v_{1} + \lambda_{2}v_{2} + \ldots + \lambda_{n}v_{n}$$
+$(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n})$ называются координатами вектора $w$
+относительно базиса $(v_{1}, v_{2}, \ldots, v_{n})$.
+\end{definition}
+
+
+\begin{problem}[1 балл]
+Найти базис пространства $\real^{3}$ , в котором векторы $x$, $y$, $z$
+имеют координатные столбцы $[x]$, $[y]$, $[z]$.
+$$x = (9, 2, 0), \quad y = (6, 3, 4), \quad z = (3, 1, 2),$$
+$$[x] = (1, 2, 1)^{T}, \quad [y] = (1, -1, 2)^{T}, \quad [z] = (-2, -1, 3)^{T}$$
+\end{problem}
+
+\begin{definition}
+{\it Прямое произведение} $U \times V$ векторных пространств $U$ и $V$ над полем $K$-- это множество пар
+$(u, v)$, где $u \in U$, $v \in V$, с операциями\\
+$(u_1, v_1) + (u_2, v_2) = (u_1 + u_2, v_1 + v_2)$;\\
+$\alpha (u, v) = (\alpha u, \alpha v)$,\\
+которые превращают его также в векторное пространство над $K$.
+
+Аналогично определяется прямое произведение $n$ векторных пространств $V_1, \ldots V_n$.
+\end{definition}
+
+\begin{problem}[1 балл]
+Докажите, что размерность $U \times V$ равна $m + n$. 
+\end{problem}
+
+\begin{definition}
+$U \subseteq V$ называется подпространством $V$ (обозначение: $U \leqslant V$), если\\
+1) $u_{1} + u_{2} \in U$ для любых $u_{1}, u_{2} \in U$;\\
+2) $\lambda u \in U$ для любых $u \in U, \lambda \in K$;
+\end{definition}
+
+
+\begin{problem}[1 балл]
+Пусть $V_1,V_2\leq V$. 
+Докажите, что если $V_1\cup V_2\leq V$, то $V_1\leq V_2$ или $V_2\leq V_1$.
+\end{problem}
+
+
+\begin{problem}
+Найдите размерность пространства:\\
+а) (1 балл) кососимметричных матриц (т. е., таких, что $A = A^{T}$) размера $n\times n$;\\
+б) (1 балл) матриц размера $n\times n$, коммутирующих с $e_{12}$ 
+($e_{ij}$ -- матрица с единицей на позиции $(i, j)$ и нулями на остальных),
+т.е., таких, что $Ae_{12} = e_{12}A$
+\end{problem}
+
+\begin{problem}
+Пусть $V=\{f\in K[x]\,|\, \deg f\leq n\} = \{a_{0} + a_{1}t + \ldots + a_{n}t^{n}, a_{i} \in K\}$
+(многочлены с коэффициентами из поля  $k$ степени не выше $n$). \\
+а) (1 балл) Покажите, что любой набор многочленов $p_0(x), p_1(x), \dots, p_n(x)$, 
+такой, что $\deg p_i(x)=i$, является базисом $V$.\\
+б) (2 балла) Пусть даны различные элементы $\lambda_0, \dots, \lambda_n\in K$. 
+Покажите, что набор многочленов $p_i(x)=\prod_{j\neq i}(x-\lambda_j)$ является базисом $V$.
+\end{problem}
+
+
+\begin{problem}[1 балл]
+Пусть 
+$$A=\left(\begin{matrix}
+3& 5&-4& 2 \\
+2& 4&-6& 3 \\
+11& 17& -8& 4 
+\end{matrix}\right)$$
+Найдите базис пространства решений однородного уравнения $Ax = 0$.
+\end{problem}
+
+\begin{problem}
+а) [1 балл] Покажите, что множество решений уравнения $a_1x_1+a_2x_2+\cdots+a_nx_n=0$, 
+$a_{i} \in K$, имеет размерность $n-1$ над $K$. \\
+б) [2 балла] Покажите, что все подпространства размерности $n-1$ в $K^n$ имеют такой вид.
+\end{problem}
+
+\end{document}

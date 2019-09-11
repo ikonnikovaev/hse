@@ -1,0 +1,150 @@
+\documentclass[12pt, fleqn]{extarticle}
+
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{a4paper, top=2.0cm, left=2.0cm, right=2.0cm, bottom=2.0cm}
+
+\usepackage{graphicx}
+\usepackage[compact]{titlesec}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage{bm}
+
+\setlength{\parskip}{0pt}
+\setlength\parindent{0pt}
+
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
+
+
+\DeclareMathOperator{\Kernel}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\characteristic}{char}
+
+
+
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem_}{Теорема}
+\newtheorem*{corollarb}{Следствие}
+\newtheorem{proposition}{Предложение}
+\newtheorem{claim}{Утверждение}
+\newtheorem{lemma}{Лемма}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem*{definition_}{Определение}
+\newtheorem*{Not}{Обозначения}
+\newtheorem{problem}{Задача}
+\setcounter{problem}{0}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+
+
+\begin{document}
+
+\pagenumbering{gobble}
+\clearpage
+\thispagestyle{empty}
+\subsubsection*{ВШЭ, 1 курс ПМИ. 3 сентября}
+
+\subsubsection*{Делимость. Деление с остатком.}
+
+\begin{problem}
+Докажите, что произведение любых пяти последовательных целых чисел
+делится на 120.
+\end{problem}
+
+\begin{problem}
+Сколько натуральных чисел, меньших 2000, не делятся ни на 12, ни на 14?
+\end{problem}
+
+\begin{problem}
+Пусть $n$ -- составное число. 
+Докажите, что существует простое $p|n$, такое что $p \leq n^{1/2}$.
+\end{problem}
+
+\begin{problem}
+Можно ли числа от $1$ до $32$ разбить на несколько групп с одинаковыми произведениями?
+\end{problem}
+
+\begin{problem}
+Докажите, что остаток от деления простого числа на 30 
+равен либо $1$, либо простому числу.
+\end{problem}
+
+\begin{problem}
+Докажите, что для любого натурального $n$ 
+найдется $n$ подряд идущих составных чисел.
+\end{problem}
+
+\begin{problem}
+Докажите признак делимости на 11: 
+число, имеющее десятичную запись $a_n\dots a_0$ 
+делится на 11 тогда и только тогда, когда $\sum\limits_{i=0}^n (-1)^ia_i$ 
+делится на 11.
+\end{problem}
+
+
+\begin{problem}
+Назовем натуральное число палиндромом, если оно читается одинаковым образом слева направо и справа налево. 
+Найдите все палиндромы с четным количеством цифр, являющиеся простыми (т.е., делящиеся только на себя и 1).
+\end{problem}
+
+
+\begin{problem}
+Докажите, что среди любых 18 последовательных трёхзначных чисел
+найдется число, делящееся на сумму своих цифр.
+\end{problem}
+
+
+\begin{problem}
+Пусть каждое из целых чисел $a$, $b$, $c$ и $d$ делится на $ab-cd$. 
+Доказать, что тогда $ab-cd$ равно $1$ или $-1$.
+\end{problem}
+
+\begin{definition}
+Пусть $a, b \in \integer$.
+Разделить с остатком $a$ на $b$ -- это значит найти $q, r \in \integer$
+такие, что $a = bq + r$ и $0 \leqslant r < |b|$.
+\end{definition}
+
+\begin{problem}
+Доказать, что при любом целом $k > 1$ и любом $n \in \nat$
+каждое число $a \in \{0, 1, \ldots k^{n} - 1\}$
+можно единственным образом представить в виде
+$$a = a_{0} + a_{1}k + \ldots + a_{n-1}k^{n-1},$$
+где  $a_{i} \in \{0, 1, \ldots k - 1\}$. 
+(Такое представление числа $a$ называют $k$-ичным.)
+\end{problem}
+
+\begin{problem}
+Как определить, чётно ли число, по его записи в системе с
+основанием $k$?
+\end{problem}
+
+\begin{problem}
+Доказать, что при любом целом $k > 1$ и любом $n \in \nat$
+каждое число $a \in \{0, 1, \ldots (n+1)! - 1\}$
+можно единственным образом представить в виде
+$$a = a_{1} \cdot 1! + a_{2} \cdot 2! + \ldots + a_{n} \cdot n!,$$
+где  $a_{i} \in \{0, 1, \ldots i\}$. 
+(Такое представление числа $a$ называют факториальным.)
+\end{problem}
+
+
+\begin{problem}
+Докажите, что при любых натуральных $n$ и $m$ число 
+$$\frac{1}{n} + \frac{1}{n + 1} + \ldots + \frac{1}{n + m}$$
+не является целым.
+\end{problem}
+
+
+
+\end{document}

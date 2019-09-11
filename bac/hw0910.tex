@@ -1,0 +1,100 @@
+\documentclass[12pt, fleqn]{extarticle}
+
+\usepackage[russian]{babel}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{a4paper, top=2.0cm, left=2.0cm, right=2.0cm, bottom=2.0cm}
+
+\usepackage{graphicx}
+\usepackage[compact]{titlesec}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage{bm}
+
+\setlength{\parskip}{0pt}
+\setlength\parindent{0pt}
+
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\integer}{\mathbb{Z}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\complex}{\mathbb{C}}
+
+
+\DeclareMathOperator{\Kernel}{Ker}
+\DeclareMathOperator{\Image}{Im}
+\DeclareMathOperator{\characteristic}{char}
+
+
+
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem_}{Теорема}
+\newtheorem*{corollarb}{Следствие}
+\newtheorem{proposition}{Предложение}
+\newtheorem{claim}{Утверждение}
+\newtheorem{lemma}{Лемма}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem*{definition_}{Определение}
+\newtheorem*{Not}{Обозначения}
+\newtheorem{problem}{Задача}
+\setcounter{problem}{0}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Замечание}
+
+
+\begin{document}
+
+\pagenumbering{gobble}
+\clearpage
+\thispagestyle{empty}
+\subsubsection*{ВШЭ, 1 курс ПМИ. Домашнее задание от 10 сентября}
+
+\subsubsection*{Алгоритм Евклида.}
+
+\begin{problem}[1 балл]
+Найдите $\text{НОД}(7^{13} - 2,7^{11} + 2)$.
+\end{problem}
+
+\begin{problem}[1 балл]
+Какие целые значения может принимать
+$\text{НОД}(7a^{2} + 2a + 1,3a + 1)$
+при различных целых $a$?
+\end{problem}
+
+
+\begin{problem}[1 балл]
+Определим последовательность чисел Фибоначчи:
+$$
+F_{n} =
+\begin{cases}
+0 & \text{при } n = 0 \\
+1 & \text{при } n = 1\\
+F_{n - 1} + F_{n - 2} & \text{if } n > 1\\
+\end{cases}
+$$
+Чему равен $\text{НОД}(F_{n + 1}, F_{n})$?
+\end{problem}
+
+\begin{problem}
+Изначально множество состоит из $n$ натуральных чисел.
+На каждом шаге к нему можно добавить модуль разности любых двух элементов. 
+Найдите:\\
+а) (1 балл) минимальное число, которое можно добавить с помощью таких операций;\\
+б) (1 балл) максимальное количество элементов, которые можно добавить с помощью таких операций.
+\end{problem}
+
+\begin{problem}[1 балл]
+Для любого ли натурального $n$
+существуют $a, b \in \integer$,
+алгоритм Евклида для которых требует $n$ шагов?
+\end{problem}
+
+
+
+
+\end{document}
